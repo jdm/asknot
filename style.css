@@ -1,0 +1,50 @@
+.group {
+    display: none;
+}
+
+.choices li {
+    display: none;
+}
+
+#displayed {
+    text-align: center;
+}
+
+#question-display {
+    font-size: 40pt;
+    padding-bottom: 1.5em;
+}
+
+#responses {
+    padding-top: 1.5em;
+    font-size: 40pt;
+}
+
+#responses div {
+    margin-bottom: 0.5em;
+}
+
+#responses div :hover {
+    /*text-decoration: underline;*/
+    cursor: pointer;
+}
+
+#responses div span {
+    border-right: 2px black solid;
+    border-bottom: 2px black solid;
+    border-left: 2px grey solid;
+    border-top: 2px grey solid;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    background-color: lightgrey;
+    border-radius: 15px;
+}
+
+#content {
+    font-size: 80pt;
+}
+
+.extra {
+    color: grey;
+    font-size: 25pt;
+}
