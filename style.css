@@ -48,3 +48,8 @@
     color: grey;
     font-size: 25pt;
 }
+
+#footer {
+    float: right;
+    margin-top: 1.5em;
+}
