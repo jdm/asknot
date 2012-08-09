@@ -5,8 +5,11 @@ var stack = [];
 
 function updateCurrentChoice() {
   var content = $('#content')[0];
-  content.innerHTML = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]].innerHTML;
+  var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
+  content.innerHTML = choice.innerHTML;
   $('#next')[0].firstChild.textContent = chooseNegativeResponse();
+  $('#ok')[0].firstChild.href = choice.hasAttribute('next-group') ?
+    '' : choice.getAttribute('target');
 }
 
 function nextChoice() {
@@ -45,7 +48,8 @@ function switchGroup(group) {
   updateCurrentChoice();
 }
 
-function investigate() {
+function investigate(ev) {
+  ev.preventDefault();
   var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
   if (choice.hasAttribute('next-group')) {
     switchGroup(choice.getAttribute('next-group'));
