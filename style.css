@@ -1,8 +1,7 @@
-/* -----------------------  *
-   CSS: Henri Koivuneva
-   henri.koivuneva@gmail.com
-   GroundUp.io
-*  ----------------------- */
+/* --------------------------- */
+/*   CSS: Henri Koivuneva      */
+/*   henri.koivuneva@gmail.com */
+/* --------------------------- */
 
 @charset "utf-8";
 
@@ -27,7 +26,7 @@ html {
 }
 
 body {
-    font-family: "Open Sans, sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 300;
     text-shadow: 0 1px 0 #fff;
     color: #333;
@@ -58,6 +57,7 @@ a {
     padding-top: 1em;
     font-size: 30pt;
     background-image: -moz-radial-gradient(center top , ellipse farthest-side, rgba(140, 140, 140, 0.5), rgba(140, 140, 140, 0) 95%), -moz-radial-gradient(center top , ellipse farthest-side, rgba(220, 220, 220, 0.5), rgba(220, 220, 220, 0)), -moz-radial-gradient(center top , ellipse farthest-side, rgba(220, 220, 220, 0.3), rgba(220, 220, 220, 0));
+    background-image: -webkit-radial-gradient(center top , ellipse farthest-side, rgba(140, 140, 140, 0.5), rgba(140, 140, 140, 0) 95%), -webkit-radial-gradient(center top , ellipse farthest-side, rgba(220, 220, 220, 0.5), rgba(220, 220, 220, 0)), -webkit-radial-gradient(center top , ellipse farthest-side, rgba(220, 220, 220, 0.3), rgba(220, 220, 220, 0));
     background-size: 100% 5px, 100% 100px, 100% 100%;
     background-repeat: no-repeat;
 }
@@ -87,16 +87,19 @@ a {
 
 #ok a {
     background: -moz-linear-gradient(#84C83C, #66AA1E) repeat scroll 0 0 #84C83C;
+    background: -webkit-linear-gradient(#84C83C, #66AA1E) repeat scroll 0 0 #84C83C;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset;
 }
 
 #next a {
     background: -moz-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
+    background: -webkit-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset;
 }
 
 #back a {
     background: -moz-linear-gradient(#F19932, #D37B14) repeat scroll 0 0 #F19932;
+    background: -webkit-linear-gradient(#F19932, #D37B14) repeat scroll 0 0 #F19932;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset;
 }
 
