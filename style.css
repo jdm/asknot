@@ -25,11 +25,19 @@ html {
     transition: all 0.2s ease-in-out;
 }
 
-body {
+#tabzilla {
+    margin-right: 100px;
+}
+
+#wrapper {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     text-shadow: 0 1px 0 #fff;
     color: #333;
+}
+
+#ribbon {
+    border-top: 2px solid #fff;
 }
 
 .group {
@@ -42,6 +50,7 @@ body {
 
 #displayed {
     text-align: center;
+    margin-top: 60px;
 }
 
 a {
@@ -51,6 +60,7 @@ a {
 
 #question-display {
     font-size: 20pt;
+    padding: 0 10% 0 10%;
 }
 
 #responses {
@@ -123,7 +133,7 @@ a {
 }
 
 #footer {
-    margin-top: 1.5em;
+    margin-top: 2em;
     color: #666;
 }
 
