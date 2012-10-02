@@ -34,10 +34,36 @@ html {
     font-weight: 300;
     text-shadow: 0 1px 0 #fff;
     color: #333;
+    margin-top:0px;
 }
 
 #ribbon {
     border-top: 2px solid #fff;
+}
+
+#lang {
+    float:right;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    text-shadow: 0 1px 0 #fff;
+    color: #333;
+    margin-top:10px;
+    margin-right:10px;
+}
+
+select, 
+option {
+    background: #fff;
+    border-color: #b2b2b2;
+    border-style: solid;
+    border-width: 1px;
+    @shadow: 0 1px rgba(255,255,255,0.5);
+    font-size: @smallFontSize;
+    .open-sans;
+    padding: (@baseLine / 6)  (@baseLine / 3);
+    .border-radius(3px);
+    .box-shadow(@shadow);
+    .transition(all linear .1s);
 }
 
 .group {

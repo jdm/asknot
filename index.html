@@ -10,10 +10,18 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <div id="ribbon"></div>
+
   <a href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+  <div id="lang">
+    <span data-l10n-id="lang-selection">language: </span>
+    <select onchange="document.webL10n.setLanguage(this.value || this.options[this.selectedIndex].text);">
+      <option selected>en</option>
+      <option>gr</option>
+    </select>
+  </div>
+  
   <div id="wrapper">
-    
+
     <div class="group" id="proglang">
       <span class="question" data-l10n-id="question">What's your favourite programming language?</span>
       <ul class="choices">
