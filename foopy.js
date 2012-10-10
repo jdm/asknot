@@ -66,10 +66,32 @@ function takeBack() {
     switchGroup(stack[stack.length - 1]);
 }
 
+function langChange() {
+    document.webL10n.setLanguage(this.value);
+}
+
 $(window).load(function() {
     $('#ok')[0].onclick = investigate;
     $('#next')[0].onclick = nextChoice;
     $('#back')[0].onclick = takeBack;
+    $('#lang select')[0].onchange = langChange;
+
+
+    // Detected browser language
+    var browserLang = document.webL10n.getLanguage();
+    // Default language (value of the selected <option> element)
+    var defaultLang = $("#lang option:selected").val();
+
+    if (defaultLang !== browserLang) {
+        var option = $('#lang option[value=' + browserLang + ']');
+        if (option.length) {
+            // If the browser language is supported, select the good option
+            option.attr('selected', 'selected');
+        } else {
+            // Else set the default language
+            document.webL10n.setLanguage(defaultLang);
+        }
+    }
 
     switchGroup('proglang');
 });
