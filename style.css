@@ -104,12 +104,12 @@ a {
     margin-bottom: 0.5em;
 }
 
-#responses div :hover {
+#responses div a:hover {
     cursor: pointer;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset, 0px 3px 48px rgba(255,255,255,0.2) inset;
 }
 
-#responses div :active {
+#responses div a:active {
     cursor: pointer;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1) inset, 0 1px rgb(255, 255, 255, 0.1), 0px 3px 48px rgba(0,0,0,0.2) inset;
 }
