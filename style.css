@@ -147,6 +147,10 @@ a {
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset;
 }
 
+#back a span .negative {
+    box-shadow: none;
+}
+
 #content {
     font-size: 60pt;
     font-weight: 800;
@@ -165,4 +169,12 @@ a {
 
 #footer a {
     color: #555;
+}
+
+.negative {
+    display: none;
+}
+
+.visible {
+    display: inline;
 }

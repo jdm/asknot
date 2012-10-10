@@ -4,8 +4,7 @@ var choices = [];
 var stack = [];
 
 function chooseNegativeResponse() {
-    var responses = ["No, not interested", "Show me something else", "Boring",
-                   "Pffft, whatever", "Not my line of expertise", "Keep going"];
+    var responses = $('.negative');
     return responses[Math.floor(Math.random() * responses.length)];
 }
 
@@ -13,7 +12,9 @@ function updateCurrentChoice() {
     var content = $('#content')[0];
     var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
     content.innerHTML = choice.innerHTML;
-    $('#next')[0].firstChild.textContent = chooseNegativeResponse();
+    var negative = chooseNegativeResponse();
+    $($('.negative.visible')[0]).removeClass('visible');
+    $(negative).addClass('visible');
     $('#ok')[0].firstChild.href = choice.hasAttribute('next-group') ?
     '' : choice.getAttribute('target');
 }
