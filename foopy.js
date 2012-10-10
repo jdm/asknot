@@ -8,13 +8,17 @@ function chooseNegativeResponse() {
     return responses[Math.floor(Math.random() * responses.length)];
 }
 
+function updateNegativeResponse() {
+    var negative = chooseNegativeResponse();
+    $($('.negative.visible')[0]).removeClass('visible');
+    $(negative).addClass('visible');  
+}
+
 function updateCurrentChoice() {
     var content = $('#content')[0];
     var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
+    updateNegativeResponse();
     content.innerHTML = choice.innerHTML;
-    var negative = chooseNegativeResponse();
-    $($('.negative.visible')[0]).removeClass('visible');
-    $(negative).addClass('visible');
     $('#ok')[0].firstChild.href = choice.hasAttribute('next-group') ?
     '' : choice.getAttribute('target');
 }
@@ -76,7 +80,6 @@ $(window).load(function() {
     $('#next')[0].onclick = nextChoice;
     $('#back')[0].onclick = takeBack;
     $('#lang select')[0].onchange = langChange;
-
 
     // Detected browser language
     var browserLang = document.webL10n.getLanguage();
