@@ -109,5 +109,5 @@ $(window).load(function() {
         }
     }
 
-    switchGroup('proglang');
+    switchGroup('progornoprog');
 });
