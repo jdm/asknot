@@ -56,8 +56,8 @@
           setGroupChoices(group, choiceId);
         }
 
-        $('#back')[0].style.display = group === 'proglang' ? 'none' : 'block';
-        $('#next')[0].style.display = group !== 'proglang' && choices[choices.length - 1].length == 1 ? 'none' : 'block';
+        $('#back')[0].style.display = group === 'progornoprog' ? 'none' : 'block';
+        $('#next')[0].style.display = group !== 'progornoprog' && choices[choices.length - 1].length == 1 ? 'none' : 'block';
         $('.question', groupNode)[0].style.display = 'block';
         updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
     }
@@ -222,7 +222,7 @@
 
             cleanUpCurrent();
 
-            stack = queryParts.length ? ["proglang"] : [];
+            stack = queryParts.length ? [defaultGroup] : [];
             if (queryParts.length) {
               stack = stack.concat(queryParts.slice(1, queryParts.length - 1));
 
