@@ -185,6 +185,7 @@
         $('#lang select').on('change', onLangChange);
 
         var languageRegexp = /[&?]lang=([^&?]+)/;
+        var defaultGroup = "progornoprog";
 
         // Check for language part in URL
         if (languageRegexp.test(document.location.search)) {
@@ -216,7 +217,7 @@
 
             queryParts.shift(); // Dropping '#!'
 
-            var savedGroup  = "proglang",
+            var savedGroup  = defaultGroup,
                 savedChoice = queryParts.pop();
 
             cleanUpCurrent();
@@ -235,7 +236,7 @@
 
             switchGroup(savedGroup, savedChoice);
         } else {
-            switchGroup('proglang');
+            switchGroup(defaultGroup);
         }
     });
 })(window.jQuery);

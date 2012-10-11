@@ -47,7 +47,53 @@
   </div>
 
   <div id="wrapper">
+    <div class="group" id="progornoprog">
+      <span class="question" data-l10n-id="progquestion"></span>
+      <ul class="choices">
+        <li next-group="proglang">Programming languages</li>
+        <li next-group="softtest">Software Testing</li>
+        <li next-group="support">User Support</li>
+      </ul>
+    </div>
 
+    <div class="group" id="softtest">
+      <span class="question" data-l10n-id="qa-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/QA/Execution/Web_Testing">Web QA
+          <div class="extra" data-l10n-id="webqa-extra"></div>
+        </li>
+        <li next-group="ffqa">Firefox QA</li>
+        <li target="https://wiki.mozilla.org/Thunderbird:Testing">Thunderbird QA
+          <div class="extra" data-l10n-id="sumoaoa-extra"></div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="group" id="support">
+      <span class="question" data-l10n-id="support-intro"></span>
+      <ul class="choices">
+        <li target="http://support.mozilla.org/en-US/kb/superheroes-wanted">Answer questions on our support forum
+          <div class="extra" data-l10n-id="sumo-extra"></div>
+        </li>
+        <li target="http://support.mozilla.org/en-US/kb/superheroes-wanted">Be part of our army of awesome on Twitter
+          <div class="extra" data-l10n-id="sumoaoa-extra"></div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="group" id="ffqa">
+      <span class="question" data-l10n-id="ffqa-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/QA/Community/Bug_Day">Participate in Bug Day
+          <div class="extra" data-l10n-id="ff-bugday-extra"></div>
+        </li>
+        <li target="https://quality.mozilla.org/docs/firefox/install-a-nightly-browser/">Run a Nightly Browser
+          <div class="extra" data-l10n-id="ff-nightly-extra"></div>
+        </li>
+      </ul>
+    </div>
+    
+    
     <div class="group" id="proglang">
       <span class="question" data-l10n-id="question"></span>
       <ul class="choices">
@@ -72,7 +118,7 @@
         </li>
       </ul>
     </div>
-
+    
     <div class="group" id="cpp">
       <span class="question" data-l10n-id="cpp-intro"></span>
       <ul class="choices">
