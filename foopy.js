@@ -50,8 +50,20 @@ function switchGroup(group) {
         choices.push(shuffle(c));
     }
     $('#back')[0].style.display = group == 'proglang' ? 'none' : 'block';
-    $('#question-display')[0].innerHTML = $('.question', groupNode)[0].outerHTML;
+    $('#question-display')[0].innerHTML = outerHTML($('.question', groupNode)[0]);
     updateCurrentChoice();
+}
+	
+	//+ Mic
+	//@ http://stackoverflow.com/questions/1700870/how-do-i-do-outerhtml-in-firefox
+function outerHTML(node){
+	return node.outerHTML || (function(n){
+		var div = document.createElement('div'), h;
+		div.appendChild( n.cloneNode(true) );
+		h = div.innerHTML;
+		div = null;
+		return h;
+	})(node);
 }
 
 function investigate(ev) {
