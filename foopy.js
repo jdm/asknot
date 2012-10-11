@@ -164,6 +164,7 @@
             }
         }
 
+        var defaultGroup = "progornoprog";
         var query = window.location.hash
         if (query.length > 1) {
             var queryParts = query.split("/");
@@ -179,7 +180,7 @@
               testOption.prop("selected", "selected");
             }
 
-            var savedGroup  = "proglang",
+            var savedGroup  = defaultGroup,
                 savedChoice = queryParts.pop();
 
             cleanUpCurrent();
@@ -198,7 +199,7 @@
 
             switchGroup(savedGroup, savedChoice);
         } else {
-            switchGroup('proglang');
+            switchGroup(defaultGroup);
         }
     });
 })(window.jQuery);
