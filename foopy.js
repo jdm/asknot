@@ -49,7 +49,7 @@ function switchGroup(group) {
             c.push(i);
         choices.push(shuffle(c));
     }
-    $('#back')[0].style.display = group == 'proglang' ? 'none' : 'block';
+    $('#back')[0].style.display = group == 'progornoprog' ? 'none' : 'block';
     $('#question-display')[0].innerHTML = outerHTML($('.question', groupNode)[0]);
     updateCurrentChoice();
 }
@@ -109,5 +109,5 @@ $(window).load(function() {
         }
     }
 
-    switchGroup('proglang');
+    switchGroup('progornoprog');
 });
