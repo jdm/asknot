@@ -35,6 +35,8 @@ html {
     text-shadow: 0 1px 0 #fff;
     color: #333;
     margin-top:0px;
+    text-align: center;
+    padding-top: 60px;
 }
 
 #ribbon {
@@ -58,15 +60,15 @@ select {
     border-width: 1px;
 }
 
-.group {
-    display: none;
-}
-
 .choices li {
     display: none;
 }
 
-#displayed {
+.question {
+    display: none;
+}
+
+.question {
     text-align: center;
     padding-top: 60px;
 }
@@ -76,7 +78,7 @@ a {
     text-shadow: 0 1px 0 rgba(255,255,255,0.9), 0px 1px 1px rgba(255,255,255,0.9);
 }
 
-#question-display {
+.question {
     font-size: 20pt;
     padding: 0 10% 0 10%;
 }
@@ -143,7 +145,7 @@ a {
     box-shadow: none;
 }
 
-#content {
+.choices li {
     font-size: 60pt;
     font-weight: 800;
 }

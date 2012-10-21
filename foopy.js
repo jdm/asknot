@@ -14,21 +14,23 @@ function updateNegativeResponse() {
     $(negative).addClass('visible');  
 }
 
-function updateCurrentChoice() {
-    var content = $('#content')[0];
+function updateCurrentChoice(lastIndex) {
+    var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][lastIndex]];
     var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
     updateNegativeResponse();
-    content.innerHTML = choice.innerHTML;
+    lastChoice.style.display = 'none';
+    choice.style.display = 'inline';
     $('#ok')[0].firstChild.href = choice.hasAttribute('next-group') ?
     '' : choice.getAttribute('target');
 }
 
 function nextChoice() {
+    var lastIndex = choiceIndex[choiceIndex.length - 1];
     choiceIndex[choiceIndex.length - 1]++;
     if (choiceIndex[choiceIndex.length - 1] === $('.choices li', groupNode).length) {
         choiceIndex[choiceIndex.length - 1] = 0;
     }
-    updateCurrentChoice();
+    updateCurrentChoice(lastIndex);
 }
 
 function switchGroup(group) {
@@ -50,26 +52,24 @@ function switchGroup(group) {
         choices.push(shuffle(c));
     }
     $('#back')[0].style.display = group == 'proglang' ? 'none' : 'block';
-    $('#question-display')[0].innerHTML = outerHTML($('.question', groupNode)[0]);
-    updateCurrentChoice();
+    $('.question', groupNode)[0].style.display = 'block';
+    updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
 }
-	
-	//+ Mic
-	//@ http://stackoverflow.com/questions/1700870/how-do-i-do-outerhtml-in-firefox
-function outerHTML(node){
-	return node.outerHTML || (function(n){
-		var div = document.createElement('div'), h;
-		div.appendChild( n.cloneNode(true) );
-		h = div.innerHTML;
-		div = null;
-		return h;
-	})(node);
+
+function cleanUpCurrent() {
+    if (!groupNode) {
+        return;
+    }
+    $('.question', groupNode)[0].style.display = 'none';
+    var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
+    lastChoice.style.display = 'none';
 }
 
 function investigate(ev) {
     ev.preventDefault();
     var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
     if (choice.hasAttribute('next-group')) {
+        cleanUpCurrent();
         switchGroup(choice.getAttribute('next-group'));
     } else {
         window.open(choice.getAttribute('target'));
@@ -77,6 +77,7 @@ function investigate(ev) {
 }
 
 function takeBack() {
+    cleanUpCurrent();
     stack.splice(stack.length - 1, 1);
     choiceIndex.splice(choiceIndex.length - 1, 1);
     choices.splice(choices.length - 1, 1);
