@@ -1,0 +1,20 @@
+.extra, #responses, #footer, select, #lang {
+    display: none !important;
+}
+
+.question {
+    display: block !important;
+}
+
+.question:before {
+    content: attr(data-l10n-id) ": ";
+}
+
+ul, li {
+    display: block !important;
+    sfont-size: 12pt !important;
+}
+
+li[target]:after {
+    content: " - " attr(target);
+}
