@@ -110,5 +110,21 @@ $(window).load(function() {
         }
     }
 
+    var query = window.location.hash.substring(1);
     switchGroup('proglang');
+    if (query.length == 0) {
+      return;
+    }
+
+    var node = document.querySelector('li[next-group="' + query + '"]');
+    if (!node)
+      return;
+    node = node.parentNode.parentNode;
+    while (node.has) {
+      
+    }
+                 
+                 
+    cleanUpCurrent();
+    switchGroup(query.substring(1));
 });
