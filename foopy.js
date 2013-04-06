@@ -89,9 +89,9 @@ function langChange() {
 }
 
 $(window).load(function() {
-    $('#ok')[0].onclick = investigate;
-    $('#next')[0].onclick = nextChoice;
-    $('#back')[0].onclick = takeBack;
+    $('#ok a')[0].onclick = investigate;
+    $('#next a')[0].onclick = nextChoice;
+    $('#back a')[0].onclick = takeBack;
     $('#lang select')[0].onchange = langChange;
 
     // Detected browser language
