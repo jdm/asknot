@@ -30,6 +30,7 @@
         choiceIndex[choiceIndex.length - 1]++;
         if (choiceIndex[choiceIndex.length - 1] === $('.choices li', groupNode).length) {
             choiceIndex[choiceIndex.length - 1] = 0;
+//            alert('here');
         }
         updateCurrentChoice(lastIndex);
     }
@@ -55,6 +56,7 @@
             choices.push(shuffle(c));
         }
         $('#back')[0].style.display = group === 'proglang' ? 'none' : 'block';
+        $('#next')[0].style.display = choices.length == 2 && choices[1].length == 1 ? 'none' : 'block';
         $('.question', groupNode)[0].style.display = 'block';
         updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
     }
@@ -70,6 +72,7 @@
 
     function investigate(ev) {
         ev.preventDefault();
+        console.log(groupNode);
         var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
         if (choice.hasAttribute('next-group')) {
             cleanUpCurrent();
