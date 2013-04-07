@@ -1,3 +1,4 @@
+(function($) {
 var groupNode;
 var choiceIndex = [];
 var choices = [];
@@ -127,3 +128,4 @@ $(window).load(function() {
     cleanUpCurrent();
     switchGroup(query.substring(1));
 });
+})(window.jQuery);
