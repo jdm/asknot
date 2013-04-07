@@ -89,10 +89,10 @@ function langChange() {
 }
 
 $(window).load(function() {
-    $('#ok a')[0].onclick = investigate;
-    $('#next a')[0].onclick = nextChoice;
-    $('#back a')[0].onclick = takeBack;
-    $('#lang select')[0].onchange = langChange;
+    $('#ok a:first').on('click', investigate);
+    $('#next a:first').on('click', nextChoice);
+    $('#back a:first').on('click', takeBack);
+    $('#lang select').on('change', langChange);
 
     // Detected browser language
     var browserLang = document.webL10n.getLanguage();
@@ -123,8 +123,7 @@ $(window).load(function() {
     while (node.has) {
       
     }
-                 
-                 
+
     cleanUpCurrent();
     switchGroup(query.substring(1));
 });
