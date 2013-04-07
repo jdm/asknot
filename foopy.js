@@ -35,24 +35,26 @@
     }
 
     function switchGroup(group) {
+        //+ Jonas Raoni Soares Silva
+        //@ http://jsfromhell.com/array/shuffle [rev. #1]
+        function shuffle(v) {
+            for (var j, x, i = v.length; i; j = parseInt(Math.random() * i, 10), x = v[--i], v[i] = v[j], v[j] = x){}
+            return v;
+        }
+
         groupNode = document.getElementById(group);
         if (!stack.length || stack[stack.length - 1] !== group) {
             stack.push(group);
             choiceIndex.push(0);
 
-            //+ Jonas Raoni Soares Silva
-            //@ http://jsfromhell.com/array/shuffle [rev. #1]
-            function shuffle(v) {
-                for (var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
-                return v;
-            };
 
             var c = [];
-            for (var i = 0; i < $('.choices li', groupNode).length; i++)
+            for (var i = 0; i < $('.choices li', groupNode).length; i++) {
                 c.push(i);
+            }
             choices.push(shuffle(c));
         }
-        $('#back')[0].style.display = group == 'proglang' ? 'none' : 'block';
+        $('#back')[0].style.display = group === 'proglang' ? 'none' : 'block';
         $('.question', groupNode)[0].style.display = 'block';
         updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
     }
@@ -113,13 +115,14 @@
 
         var query = window.location.hash.substring(1);
         switchGroup('proglang');
-        if (query.length == 0) {
+        if (query.length === 0) {
             return;
         }
 
         var node = document.querySelector('li[next-group="' + query + '"]');
-        if (!node)
+        if (!node) {
             return;
+        }
         node = node.parentNode.parentNode;
         while (node.has) {
 
