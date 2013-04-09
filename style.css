@@ -21,6 +21,18 @@ html {
     margin-right: 100px;
 }
 
+@media screen and (min-width: 500px) and (max-width: 760px) {
+    #tabzilla {
+	margin-right: 60px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    #tabzilla {
+	margin-right: 50px;
+    }
+}
+
 #wrapper {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
@@ -146,6 +158,7 @@ a {
     color: #666;
     font-size: 20pt;
     font-weight: 600;
+    padding-bottom: 1em;
 }
 
 #footer {
