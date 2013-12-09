@@ -100,6 +100,10 @@ a {
 
 #responses div {
     margin-bottom: 0.5em;
+    /**
+     * dispaly:none needed in case if js is disabled
+     */
+    display:none;
 }
 
 #responses div a:hover {

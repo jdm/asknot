@@ -10,6 +10,13 @@
   <link rel="resource" type="application/l10n" href="locales.ini" />
   <link href="http://www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet"/>
   <title>What can I do for Mozilla</title>
+  <!-- #responses div elements has display:none by default in case if js is disabled -->
+  <script>
+    $(document).ready(function() {
+        $('#responses div').show();
+    });
+  </script>
+  <!-- end of manipulation if js is disabled -->
 </head>
 <body>
 
@@ -253,6 +260,11 @@
         </a>
       </div>
       <div id="back"><a href="javascript:" data-l10n-id="back"></a></div>
+      <!-- message showing only if javascript disabled -->
+      <noscript>
+          <span>Please enable JavaScript in your browser!</span>
+      </noscript>
+      <!-- end of noscript message -->
     </div>
 
     <div id="footer" data-l10n-id="credits"></div>
