@@ -10,6 +10,13 @@
   <link rel="resource" type="application/l10n" href="locales.ini" />
   <link href="http://www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet"/>
   <title>What can I do for Mozilla</title>
+  <!-- #responses div elements has display:none by default in case if js is disabled -->
+  <script>
+    $(document).ready(function() {
+        $('#responses div').show();
+    });
+  </script>
+  <!-- end of manipulation if js is disabled -->
 </head>
 <body>
 
@@ -56,10 +63,10 @@
     <div class="group" id="rust">
       <span class="question" data-l10n-id="rust-intro"></span>
       <ul class="choices">
-        <li target="https://github.com/mozilla/rust/wiki">rustc
+        <li target="https://github.com/mozilla/rust/wiki" data-choice-id="rustc">rustc
           <div class="extra" data-l10n-id="rustc-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/servo/wiki/Contributing">Servo
+        <li target="https://github.com/mozilla/servo/wiki/Contributing" data-choice-id="servo">Servo
           <div class="extra" data-l10n-id="servo-extra"></div>
         </li>
       </ul>
@@ -71,28 +78,28 @@
         <li next-group="ff-cpp">Gecko
           <div class="extra" data-l10n-id="cpp-gecko-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/B2G/Hacking">Boot2Gecko
+        <li target="https://wiki.mozilla.org/B2G/Hacking" data-choice-id="boot2gecko">Boot2Gecko
           <div class="extra" data-l10n-id="cpp-b2g-extra"></div>
         </li>
-        <li target="http://developer.mozilla.org/En/Simple_Thunderbird_build">Thunderbird
+        <li target="http://developer.mozilla.org/En/Simple_Thunderbird_build" data-choice-id="thunderbird">Thunderbird
           <div class="extra" data-l10n-id="cpp-thunderbird-extra"></div>
         </li>
-        <li target="http://www.seamonkey-project.org">Seamonkey
+        <li target="http://www.seamonkey-project.org" data-choice-id="seamonkey">Seamonkey
           <div class="extra" data-l10n-id="cpp-seamonky-extra"></div>
         </li>
-        <li target="http://github.com/zpao/v8monkey">v8monkey
+        <li target="http://github.com/zpao/v8monkey" data-choice-id="v8">v8monkey
           <div class="extra" data-l10n-id="cpp-v8-extra"></div>
         </li>
-        <li target="https://github.com/kripken/emscripten/">emscripten
+        <li target="https://github.com/kripken/emscripten/" data-choice-id="emscripten">emscripten
           <div class="extra" data-l10n-id="cpp-ems-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/SVG:Contribute">SVG Project
+        <li target="https://wiki.mozilla.org/SVG:Contribute" data-choice-id="svg">SVG Project
           <div class="extra" data-l10n-id="cpp-svg-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Firefox/Windows_8_Integration#Platform_Integration_Windows_8_Development">Windows 8 Integration
+        <li target="https://wiki.mozilla.org/Firefox/Windows_8_Integration#Platform_Integration_Windows_8_Development" data-choice-id="windows-8">Windows 8 Integration
           <div class="extra" data-l10n-id="cpp-win8-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/MathML:Home_Page">MathML
+        <li target="https://wiki.mozilla.org/MathML:Home_Page" data-choice-id="mathml">MathML
           <div class="extra" data-l10n-id="cpp-mathml-extra"></div>
         </li>
       </ul>
@@ -101,13 +108,13 @@
     <div class="group" id="c">
       <span class="question" data-l10n-id="c-intro"></span>
       <ul class="choices">
-        <li target="https://developer.mozilla.org/en-US/docs/Getting_Started_With_NSS">NSS
+        <li target="https://developer.mozilla.org/en-US/docs/Getting_Started_With_NSS" data-choice-id="nss">NSS
           <div class="extra" data-l10n-id="c-nss-extra"></div>
         </li>
-        <li target="http://www.opus-codec.org/development/">Opus
+        <li target="http://www.opus-codec.org/development/" data-choice-id="opus">Opus
           <div class="extra" data-l10n-id="c-opus-extra"></div>
         </li>
-        <li target="https://xiph.org/daala/">Daala
+        <li target="https://xiph.org/daala/" data-choice-id="daala">Daala
           <div class="extra" data-l10n-id="c-daala-extra"></div>
         </li>
       </ul>
@@ -119,40 +126,40 @@
         <li next-group="ff-js">Firefox
           <div class="extra" data-l10n-id="js-ff-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Mobile/Get_Involved">Mobile Firefox
+        <li target="https://wiki.mozilla.org/Mobile/Get_Involved" data-choice-id="firefox-mobile">Mobile Firefox
           <div class="extra" data-l10n-id="js-ff-mobile-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/pdf.js/wiki">pdf.js
+        <li target="https://github.com/mozilla/pdf.js/wiki" data-choice-id="pdfjs">pdf.js
           <div class="extra" data-l10n-id="js-pdfjs-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/shumway/wiki">Shumway
+        <li target="https://github.com/mozilla/shumway/wiki" data-choice-id="shumway">Shumway
           <div class="extra" data-l10n-id="js-shumway-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Jetpack">The addon SDK
+        <li target="https://wiki.mozilla.org/Jetpack" data-choice-id="jetpack">The addon SDK
           <div class="extra" data-l10n-id="js-jetpack-extra"></div>
         </li>
-        <li target="https://developer.mozilla.org/docs/Mozilla/Firefox_OS/Platform/Gaia">Gaia
+        <li target="https://developer.mozilla.org/docs/Mozilla/Firefox_OS/Platform/Gaia" data-choice-id="gaia">Gaia
           <div class="extra" data-l10n-id="js-gaia-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/DXR">DXR
+        <li target="https://wiki.mozilla.org/DXR" data-choice-id="dxr">DXR
           <div class="extra" data-l10n-id="js-dxr-extra"></div>
         </li>
-        <li target="http://developer.mozilla.org/En/Simple_Thunderbird_build">Thunderbird
+        <li target="http://developer.mozilla.org/En/Simple_Thunderbird_build" data-choice-id="thunderbird">Thunderbird
           <div class="extra" data-l10n-id="js-thunderbird-extra"></div>
         </li>
-        <li target="http://www.seamonkey-project.org">Seamonkey
+        <li target="http://www.seamonkey-project.org" data-choice-id="seamonkey">Seamonkey
           <div class="extra" data-l10n-id="js-seamomky-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Webdev/GetInvolved">Web development
+        <li target="https://wiki.mozilla.org/Webdev/GetInvolved" data-choice-id="web-development">Web development
           <div class="extra" data-l10n-id="js-webdev-extra"></div>
         </li>
-        <li target="http://www.benmoskowitz.com/?p=527">Popcorn
+        <li target="http://www.benmoskowitz.com/?p=527" data-choice-id="popcorn">Popcorn
           <div class="extra" data-l10n-id="js-popcorn-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Firefox/Windows_8_Integration#Front_End_Windows_8_Development">Windows 8 Integration
+        <li target="https://wiki.mozilla.org/Firefox/Windows_8_Integration#Front_End_Windows_8_Development" data-choice-id="windows-8">Windows 8 Integration
           <div class="extra" data-l10n-id="js-win8-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Persona">Persona
+        <li target="https://wiki.mozilla.org/Persona" data-choice-id="persona">Persona
           <div class="extra" data-l10n-id="js-persona-extra"></div>
         </li>
       </ul>
@@ -161,10 +168,10 @@
     <div class="group" id="java">
       <span class="question" data-l10n-id="java-intro"></span>
       <ul class="choices">
-        <li target="https://wiki.mozilla.org/Mobile/Get_Involved">Mobile Firefox
+        <li target="https://wiki.mozilla.org/Mobile/Get_Involved" data-choice-id="firefox-mobile">Mobile Firefox
           <div class="extra" data-l10n-id="java-mobile-extra"></div>
         </li>
-        <li target="https://developer.mozilla.org/en-US/docs/Rhino">Rhino
+        <li target="https://developer.mozilla.org/en-US/docs/Rhino" data-choice-id="rhino">Rhino
           <div class="extra" data-l10n-id="java-rhino-extra"></div>
         </li>
       </ul>
@@ -173,16 +180,16 @@
     <div class="group" id="py">
       <span class="question" data-l10n-id="py-intro"></span>
       <ul class="choices">
-        <li target="http://developer.mozilla.org/En/Introduction">Firefox
+        <li target="http://developer.mozilla.org/En/Introduction" data-choice-id="firefox">Firefox
           <div class="extra" data-l10n-id="py-firefox-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Webdev/GetInvolved">Web development
+        <li target="https://wiki.mozilla.org/Webdev/GetInvolved" data-choice-id="web-development">Web development
           <div class="extra" data-l10n-id="py-webdev-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/DXR">DXR
+        <li target="https://wiki.mozilla.org/DXR" data-choice-id="dxr">DXR
           <div class="extra" data-l10n-id="py-dxr-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Auto-tools/New_Contributor">Tools &amp; Automation
+        <li target="https://wiki.mozilla.org/Auto-tools/New_Contributor" data-choice-id="tools">Tools &amp; Automation
           <div class="extra" data-l10n-id="py-tools-extra"></div>
         </li>
       </ul>
@@ -191,13 +198,13 @@
     <div class="group" id="php">
       <span class="question" data-l10n-id="php-intro"></span>
       <ul class="choices">
-        <li target="https://wiki.mozilla.org/Webdev/GetInvolved/WordPress">WordPress
+        <li target="https://wiki.mozilla.org/Webdev/GetInvolved/WordPress" data-choice-id="wordpress">WordPress
           <div class="extra" data-l10n-id="php-wordpress-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/Marketplace.PHP">Marketplace
+        <li target="https://github.com/mozilla/Marketplace.PHP" data-choice-id="marketplace">Marketplace
           <div class="extra" data-l10n-id="php-marketplace-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/mediawiki-bugzilla">The Mediawiki-Bugzilla plugin
+        <li target="https://github.com/mozilla/mediawiki-bugzilla" data-choice-id="mediawiki">The Mediawiki-Bugzilla plugin
           <div class="extra" data-l10n-id="php-mediawiki-extra"></div>
         </li>
       </ul>
@@ -206,22 +213,22 @@
     <div class="group" id="ff-cpp">
       <span class="question" data-l10n-id="ff-cpp-intro"></span>
       <ul class="choices">
-        <li target="http://developer.mozilla.org/En/Introduction">General Firefox work
+        <li target="http://developer.mozilla.org/En/Introduction" data-choice-id="general">General Firefox work
           <div class="extra" data-l10n-id="ff-cpp-ff-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Platform/GFX/Contribute">Graphics
+        <li target="https://wiki.mozilla.org/Platform/GFX/Contribute" data-choice-id="graphics">Graphics
           <div class="extra" data-l10n-id="ff-cpp-graphics-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Accessibility/Contribute">Accessibility
+        <li target="https://wiki.mozilla.org/Accessibility/Contribute" data-choice-id="accessibility">Accessibility
           <div class="extra" data-l10n-id="ff-cpp-access-extra"></div>
         </li>
-        <li target="http://wiki.mozilla.org/Networking">Networking
+        <li target="http://wiki.mozilla.org/Networking" data-choice-id="networking">Networking
           <div class="extra" data-l10n-id="ff-cpp-net-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey">Spidermonkey: the JavaScript engine
+        <li target="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey" data-choice-id="spidermonkey">Spidermonkey: the JavaScript engine
           <div class="extra" data-l10n-id="ff-cpp-spider-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Media">Media
+        <li target="https://wiki.mozilla.org/Media" data-choice-id="media">Media
           <div class="extra" data-l10n-id="ff-cpp-media-extra"></div>
         </li>
       </ul>
@@ -230,11 +237,11 @@
     <div class="group" id="ff-js">
       <span class="question" data-l10n-id="ff-js-intro"></span>
       <ul class="choices">
-        <li target="http://developer.mozilla.org/En/Introduction" data-l10n-id="ff-js-ff"></li>
-        <li target="https://wiki.mozilla.org/DevTools/GetInvolved">Developer tools
+        <li target="http://developer.mozilla.org/En/Introduction" data-l10n-id="ff-js-ff" data-choice-id="general"></li>
+        <li target="https://wiki.mozilla.org/DevTools/GetInvolved" data-choice-id="developer-tools">Developer tools
           <div class="extra" data-l10n-id="ff-js-dev-extra"></div>
         </li>
-        <li target="https://wiki.mozilla.org/Services/Sync#Get_Involved">Sync
+        <li target="https://wiki.mozilla.org/Services/Sync#Get_Involved" data-choice-id="sync">Sync
           <div class="extra" data-l10n-id="ff-js-sync-extra"></div>
         </li>
       </ul>
@@ -253,6 +260,11 @@
         </a>
       </div>
       <div id="back"><a href="javascript:" data-l10n-id="back"></a></div>
+      <!-- message showing only if javascript disabled -->
+      <noscript>
+          <span>Please enable JavaScript in your browser!</span>
+      </noscript>
+      <!-- end of noscript message -->
     </div>
 
     <div id="footer" data-l10n-id="credits"></div>

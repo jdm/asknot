@@ -100,6 +100,10 @@ a {
 
 #responses div {
     margin-bottom: 0.5em;
+    /**
+     * dispaly:none needed in case if js is disabled
+     */
+    display:none;
 }
 
 #responses div a:hover {
@@ -133,7 +137,7 @@ a {
     background: -moz-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
     background: -webkit-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
     background: -o-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
-    background: -webkit-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
+    background: linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset;
 }
 
