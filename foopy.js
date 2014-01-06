@@ -56,8 +56,9 @@
           setGroupChoices(group, choiceId);
         }
 
-        $('#back')[0].style.display = group === 'progornoprog' ? 'none' : 'block';
-        $('#next')[0].style.display = group !== 'progornoprog' && choices[choices.length - 1].length == 1 ? 'none' : 'block';
+        var firstChoice = $('#wrapper > div')[0].id;
+        $('#back')[0].style.display = group === firstChoice ? 'none' : 'block';
+        $('#next')[0].style.display = group !== firstChoice && choices[choices.length - 1].length == 1 ? 'none' : 'block';
         $('.question', groupNode)[0].style.display = 'block';
         updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
     }
@@ -185,7 +186,7 @@
         $('#lang select').on('change', onLangChange);
 
         var languageRegexp = /[&?]lang=([^&?]+)/;
-        var defaultGroup = "progornoprog";
+        var defaultsub = "proglang";
 
         // Check for language part in URL
         if (languageRegexp.test(document.location.search)) {
@@ -236,7 +237,7 @@
 
             switchGroup(savedGroup, savedChoice);
         } else {
-            switchGroup(defaultGroup);
+            switchGroup(defaultGroup, defaultSub);
         }
     });
 })(window.jQuery);
