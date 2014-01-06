@@ -55,8 +55,9 @@
           setGroupChoices(group, choiceId);
         }
 
-        $('#back')[0].style.display = group === 'progornoprog' ? 'none' : 'block';
-        $('#next')[0].style.display = group !== 'progornoprog' && choices[choices.length - 1].length == 1 ? 'none' : 'block';
+        var firstChoice = $('#wrapper > div')[0].id;
+        $('#back')[0].style.display = group === firstChoice ? 'none' : 'block';
+        $('#next')[0].style.display = group !== firstChoice && choices[choices.length - 1].length == 1 ? 'none' : 'block';
         $('.question', groupNode)[0].style.display = 'block';
         updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
     }
@@ -165,7 +166,8 @@
         }
 
         var defaultGroup = "progornoprog";
-        var query = window.location.hash
+        var defaultSub = "proglang";
+        var query = window.location.hash;
         if (query.length > 1) {
             var queryParts = query.split("/");
 
@@ -199,7 +201,7 @@
 
             switchGroup(savedGroup, savedChoice);
         } else {
-            switchGroup(defaultGroup);
+            switchGroup(defaultGroup, defaultSub);
         }
     });
 })(window.jQuery);
