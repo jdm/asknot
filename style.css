@@ -33,6 +33,18 @@ html {
     }
 }
 
+#lang-selection {
+    background: center left transparent no-repeat;
+    /*
+     * Icon attribution
+     * A’ Design Award & Competition, Onur Müştak Çobanlı and Farhat Datta
+     * http://www.languageicon.org
+     */
+    background-image: url("./language_icon.png");
+    padding-left: 28px;
+    padding-bottom: 2px;
+}
+
 #wrapper {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
