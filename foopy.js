@@ -44,7 +44,7 @@
         groupNode = document.getElementById(group);
 
         if (!stack.length || stack[stack.length - 1] !== group || choiceId) {
-          if ( stack.indexOf(group) < 0 ) {
+          if ( $.inArray(group, stack) < 0 ) {
             stack.push(group);
           }
 
@@ -132,7 +132,7 @@
         collector = shuffle(collector)
 
         if (choiceId) {
-          choiceIndex.push(collector.indexOf(memo));
+          choiceIndex.push( $.inArray(memo, collector) );
         }
 
         choices.push(collector);
