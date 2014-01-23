@@ -3,6 +3,7 @@
     var choiceIndex = [];
     var choices     = [];
     var stack       = [];
+    var currentLang = $("#lang option:selected").val();
 
     function chooseNegativeResponse() {
         var responses = $('.negative').not('.visible');
@@ -44,7 +45,7 @@
         groupNode = document.getElementById(group);
 
         if (!stack.length || stack[stack.length - 1] !== group || choiceId) {
-          if ( stack.indexOf(group) < 0 ) {
+          if ( $.inArray(group, stack) < 0 ) {
             stack.push(group);
           }
 
@@ -90,22 +91,29 @@
         switchGroup(stack[stack.length - 1]);
     }
 
-    function langChange() {
+    function onLangChange() {
         document.webL10n.setLanguage(this.value);
-        setLocationHashPrefix(this.value);
+        setLangQueryString(this.value)
     }
 
     function setLocationHashSuffix(value) {
-        var langCode = document.webL10n.getLanguage(),
-            midValue = stack.join("/");
+        var midValue = stack.join("/");
 
-        window.location.hash = "#!/" + langCode + "/" + midValue + "/" + value;
+        window.location.hash = "#!/" + midValue + "/" + value;
     }
 
-    function setLocationHashPrefix(value) {
-        var prevHash = window.location.hash;
+    // Uses HTML5 pushState with fallback to window.location
+    function setLangQueryString(value) {
+        var urlPart = "?lang=" + value + window.location.hash;
 
-        window.location.hash = prevHash.replace(/\/(.+?)\//, "/" + value + "/")
+        currentLang = value;
+
+        if (supportsPushState()) {
+          history.pushState({ lang: value, location: window.location.hash },
+                            "", urlPart);
+        } else {
+          window.location = urlPart;
+        }
     }
 
     function setGroupChoices(group, choiceId) {
@@ -132,52 +140,79 @@
         collector = shuffle(collector)
 
         if (choiceId) {
-          choiceIndex.push(collector.indexOf(memo));
+          choiceIndex.push( $.inArray(memo, collector) );
         }
 
         choices.push(collector);
     }
 
     function getUIDAttribute(choice) {
-      return choice.getAttribute("next-group") || choice.getAttribute("data-choice-id")
+      return choice.getAttribute("next-group") || choice.getAttribute("data-choice-id");
+    }
+
+    function supportsPushState() {
+      return !! (window.history && history.pushState);
+    }
+
+    function supportsLang(value) {
+      return !! $('#lang option[value=' + value + ']').length;
+    }
+
+    function changeLang(value) {
+      var option = $('#lang option[value=' + value + ']');
+
+      if (option.length) {
+        // If the browser language is supported, select the good option
+
+        document.webL10n.setLanguage(value);
+        option.prop('selected', 'selected');
+
+        currentLang = value;
+
+        return currentLang;
+      } else {
+        return false;
+      }
+    }
+
+    window.onpopstate = function(event) {
     }
 
     $(window).load(function() {
         $('#ok a:first').on('click', investigate);
         $('#next a:first').on('click', nextChoice);
         $('#back a:first').on('click', takeBack);
-        $('#lang select').on('change', langChange);
+        $('#lang select').on('change', onLangChange);
 
-        // Detected browser language
-        var browserLang = document.webL10n.getLanguage();
-        // Default language (value of the selected <option> element)
-        var defaultLang = $("#lang option:selected").val();
+        var languageRegexp = /[&?]lang=([^&?]+)/;
 
-        if (defaultLang !== browserLang) {
-            var option = $('#lang option[value=' + browserLang + ']');
-            if (option.length) {
-                // If the browser language is supported, select the good option
-                option.prop('selected', 'selected');
-            } else {
-                // Else set the default language
-                document.webL10n.setLanguage(defaultLang);
-            }
+        // Check for language part in URL
+        if (languageRegexp.test(document.location.search)) {
+          var testLang   = document.location.search.match(languageRegexp),
+              langCode   = testLang[1];
+
+          if (supportsLang(langCode)) {
+            changeLang(langCode);
+          }
+        } else {
+          // Using browser language if found
+
+          // Detected browser language
+          var browserLang = document.webL10n.getLanguage();
+          // Default language (value of the selected <option> element)
+          var defaultLang = currentLang;
+
+          if (defaultLang !== browserLang && supportsLang(browserLang)) {
+            changeLang(browserLang);
+          }
         }
 
-        var query = window.location.hash
-        if (query.length > 1) {
-            var queryParts = query.split("/");
+        // Check for permalink
+        if (window.location.hash.length > 1) {
+            var query      = window.location.hash,
+                queryParts = query.split("/");
 
-            queryParts.shift(); // #!
-
-            var testLang   = queryParts.shift(),
-                testOption = $("#lang select option[value='" + testLang + "']");
-
-            if (testOption.length) {
-              // We've got language via location hash, and it is present in l10n
-              document.webL10n.setLanguage(testLang);
-              testOption.prop("selected", "selected");
-            }
+            queryParts.shift(); // Dropping '#!'
 
             var savedGroup  = "proglang",
                 savedChoice = queryParts.pop();

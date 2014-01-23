@@ -33,6 +33,18 @@ html {
     }
 }
 
+#lang-selection {
+    background: center left transparent no-repeat;
+    /*
+     * Icon attribution
+     * A’ Design Award & Competition, Onur Müştak Çobanlı and Farhat Datta
+     * http://www.languageicon.org
+     */
+    background-image: url("./language_icon.png");
+    padding-left: 28px;
+    padding-bottom: 2px;
+}
+
 #wrapper {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
@@ -126,6 +138,7 @@ a {
 }
 
 #ok a {
+    background-color: #84C83C;
     background: -moz-linear-gradient(#84C83C, #66AA1E) repeat scroll 0 0 #84C83C;
     background: -webkit-linear-gradient(#84C83C, #66AA1E) repeat scroll 0 0 #84C83C;
     background: -o-linear-gradient(#84C83C, #66AA1E) repeat scroll 0 0 #84C83C;
@@ -134,6 +147,7 @@ a {
 }
 
 #next a {
+    background-color: #669BE1;
     background: -moz-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
     background: -webkit-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
     background: -o-linear-gradient(#669BE1, #487DC3) repeat scroll 0 0 #669BE1;
@@ -142,6 +156,7 @@ a {
 }
 
 #back a {
+    background-color: #F19932;
     background: -moz-linear-gradient(#F19932, #D37B14) repeat scroll 0 0 #F19932;
     background: -webkit-linear-gradient(#F19932, #D37B14) repeat scroll 0 0 #F19932;
     background: -o-linear-gradient(#F19932, #D37B14) repeat scroll 0 0 #F19932;
