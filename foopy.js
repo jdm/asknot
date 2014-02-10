@@ -3,7 +3,7 @@
     var choiceIndex = [];
     var choices     = [];
     var stack       = [];
-    var currentLang = $("#lang option:selected").val();
+    var currentLang = "en"; // Default lang
 
     function chooseNegativeResponse() {
         var responses = $('.negative').not('.visible');
@@ -204,6 +204,8 @@
 
           if (defaultLang !== browserLang && supportsLang(browserLang)) {
             changeLang(browserLang);
+          } else {
+            changeLang(defaultLang);
           }
         }
 
