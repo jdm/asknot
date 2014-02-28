@@ -47,6 +47,117 @@
   </div>
 
   <div id="wrapper">
+    <div class="group" id="progornoprog">
+      <span class="question" data-l10n-id="progquestion"></span>
+      <ul class="choices">
+        <li next-group="proglang">Writing code</li>
+        <li next-group="softtest">Testing software</li>
+        <li next-group="support">User support</li>
+        <li next-group="translate">Translation</li>
+        <li next-group="advocate">Advocacy</li>
+        <li next-group="teach">Teaching</li> 
+        <li next-group="uxdesign">User experience design</li> 
+      </ul>
+    </div>
+
+    <div class="group" id="softtest">
+      <span class="question" data-l10n-id="qa-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/QA/Execution/Web_Testing" data-choice-id="webqa">Web QA
+          <div class="extra" data-l10n-id="webqa-extra"></div>
+        </li>
+        <li next-group="ffqa">Firefox QA
+          <div class="extra" data-l10n-id="ffqa-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/Thunderbird:Testing" data-choice-id="tbqa">Thunderbird QA
+          <div class="extra" data-l10n-id="thunderbirdqa-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="uxdesign">
+      <span class="question" data-l10n-id="uxdesign-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/MDN/Development/Contribute/Design" data-choice-id="l10n-creative">Mozilla creative
+          <div class="extra" data-l10n-id="creative-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="support">
+      <span class="question" data-l10n-id="support-intro"></span>
+      <ul class="choices">
+        <li target="https://support.mozilla.org/en-US/get-involved/questions" data-choice-id="sumoqa">support.mozilla.org
+          <div class="extra" data-l10n-id="sumo-extra"></div>
+        </li>
+        <li target="https://support.mozilla.org/en-US/get-involved/kb" data-choice-id="sumoqa">Mozilla Knowledge Base
+          <div class="extra" data-l10n-id="sumokb-extra"></div>
+        </li>
+        <li target="https://support.mozilla.org/en-US/get-involved/army-of-awesome" data-choice-id="sumoaoa">Army of Awesome
+          <div class="extra" data-l10n-id="sumoaoa-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/Advocacy" data-choice-id="useradvocacy">User advocacy
+          <div class="extra" data-l10n-id="user-advocacy-extra"></div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="group" id="ffqa">
+      <span class="question" data-l10n-id="ffqa-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/QA/Community/Bug_Day" data-choice-id="bugday">Join a Bug Day
+          <div class="extra" data-l10n-id="ff-bugday-extra"></div>
+        </li>
+        <li target="https://quality.mozilla.org/docs/firefox/install-a-nightly-browser/" data-choice-id="nightly">Use Firefox Nightly
+          <div class="extra" data-l10n-id="ff-nightly-extra"></div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="group" id="translate">
+      <span class="question" data-l10n-id="translate-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/L10n" data-choice-id="l10n-ff">Firefox
+          <div class="extra" data-l10n-id="l10n-extra-ff"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/L10n" data-choice-id="l10n-tb">Thunderbird
+          <div class="extra" data-l10n-id="l10n-extra-tb"></div>
+        </li> 
+        <li target="https://wiki.mozilla.org/L10n:Web_parts" data-choice-id="l10n-web">Mozilla websites
+          <div class="extra" data-l10n-id="l10nweb-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="advocate">
+      <span class="question" data-l10n-id="advocate-intro"></span>
+      <ul class="choices">
+        <li target="https://affiliates.mozilla.org/" data-choice-id="affiliate">Mozilla affilates
+          <div class="extra" data-l10n-id="aff-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/Evangelism" data-choice-id="tech-evang">Evangelizing the web
+          <div class="extra" data-l10n-id="evan-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/Compatibility/Guide" data-choice-id="webcompat">Web Compatibility
+          <div class="extra" data-l10n-id="webcompat-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/Netpolicy" data-choice-id="policy">Public policy
+          <div class="extra" data-l10n-id="policy-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="teach">
+      <span class="question" data-l10n-id="teach-intro"></span>
+      <ul class="choices">
+        <li target="https://webmaker.org/en-US/teach" data-choice-id="webmaker">Webmaker
+          <div class="extra" data-l10n-id="webmake-extra"></div>
+        </li>
+        <li target="http://hackasaurus.org/">Hackasaurus
+          <div class="extra" data-l10n-id="hackasaurus-extra" data-choice-id="hackasaurus"></div>
+        </li>
+      </ul>
+    </div>
 
     <div class="group" id="proglang">
       <span class="question" data-l10n-id="question"></span>
@@ -56,6 +167,7 @@
         <li next-group="java">Java</li>
         <li next-group="py">Python</li>
         <li next-group="php">PHP</li>
+        <li next-group="perl">Perl</li>
         <li next-group="c">C</li>
         <li next-group="rust">Rust</li>
       </ul>
@@ -72,7 +184,7 @@
         </li>
       </ul>
     </div>
-
+    
     <div class="group" id="cpp">
       <span class="question" data-l10n-id="cpp-intro"></span>
       <ul class="choices">
@@ -114,6 +226,15 @@
         </li>
         <li target="https://xiph.org/daala/" data-choice-id="daala">Daala
           <div class="extra" data-l10n-id="c-daala-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="perl">
+      <span class="question" data-l10n-id="perl-intro"></span>
+      <ul class="choices">
+        <li target="http://www.bugzilla.org/contribute/" data-choice-id="bmo">NSS
+          <div class="extra" data-l10n-id="perl-bmo-extra"></div>
         </li>
       </ul>
     </div>
@@ -163,6 +284,15 @@
         <li target="https://getfirebug.com/getinvolved" data-choice-id="firebug">Firebug
           <div class="extra" data-l10n-id="js-firebug-extra"></div>
         </li>
+        <li target="https://support.mozilla.org/en-US/kb/contribute-webmaker-code" data-choice-id="webmaker">Webmaker
+          <div class="extra" data-l10n-id="js-webmaker-extra"></div>
+        </li>
+        <li target="http://telemetry.mozilla.org/docs.html" data-choice-id="telemetry">Telemetry
+          <div class="extra" data-l10n-id="js-telemetry-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/Talkilla" data-choice-id="talkilla">Talkilla
+          <div class="extra" data-l10n-id="js-talkilla-extra"></div>
+        </li>
       </ul>
     </div>
 
@@ -174,9 +304,6 @@
         </li>
         <li target="https://wiki.mozilla.org/CloudServices/Location" data-choice-id="mozstumbler">MozStumbler
           <div class="extra" data-l10n-id="java-mozstumbler-extra"></div>
-        </li>
-        <li target="https://developer.mozilla.org/en-US/docs/Rhino" data-choice-id="rhino">Rhino
-          <div class="extra" data-l10n-id="java-rhino-extra"></div>
         </li>
       </ul>
     </div>
@@ -195,6 +322,9 @@
         </li>
         <li target="https://wiki.mozilla.org/Auto-tools/New_Contributor" data-choice-id="tools">Tools &amp; Automation
           <div class="extra" data-l10n-id="py-tools-extra"></div>
+        </li>
+        <li target="https://wiki.mozilla.org/QA/Execution/Web_Testing" data-choice-id="webqa-py">Web QA
+          <div class="extra" data-l10n-id="py-webqa-extra"></div>
         </li>
       </ul>
     </div>
