@@ -18,6 +18,10 @@
         $(negative).addClass('visible');
     }
 
+    function trackExternalLink() {
+      window.ga('send', 'event', 'outbound', 'click', $('#ok')[0].firstChild.href);
+    }
+
     function updateCurrentChoice(lastIndex) {
         var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][lastIndex]];
         var choice     = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
@@ -25,8 +29,15 @@
         updateNegativeResponse();
         lastChoice.style.display = 'none';
         choice.style.display = 'inline';
-        $('#ok')[0].firstChild.href = choice.hasAttribute('next-group') ?
+        var button = $('#ok')[0];
+        button.removeEventListener('click', trackExternalLink);
+        var isExternal = choice.hasAttribute('target');
+        button.firstChild.href = !isExternal ?
             '' : choice.getAttribute('target');
+
+        if (isExternal) {
+          button.addEventListener('click', trackExternalLink);
+        }
 
         setLocationHashSuffix(getUIDAttribute(choice));
     }
@@ -215,6 +226,8 @@
         if (window.location.hash.length > 1) {
             var query      = window.location.hash,
                 queryParts = query.split("/");
+
+            window.ga('send', 'pageview', query);
 
             queryParts.shift(); // Dropping '#!'
 
