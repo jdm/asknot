@@ -18,6 +18,15 @@
     });
   </script>
   <!-- end of manipulation if js is disabled -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35433268-58', 'whatcanidoformozilla.org');
+    ga('send', 'pageview');
+  </script>
 </head>
 <body>
 
@@ -31,14 +40,18 @@
       <option value='de'>de</option>
       <option selected value='en'>en</option>
       <option value='es'>es</option>
+      <option value='fa'>fa</option>
       <option value='fr'>fr</option>
       <option value='el'>gr</option>
       <option value='hi-IN'>hi-IN</option>
       <option value='it'>it</option>
+      <option value='ko'>ko</option>
       <option value='lv'>lv</option>
+      <option value='ml-IN'>ml-IN</option>
       <option value='nl'>nl</option>
       <option value='pl'>pl</option>
       <option value='pt-BR'>pt-BR</option>
+      <option value='pt-PT'>pt-PT</option>
       <option value='ro'>ro</option>
       <option value='ru-RU'>ru-RU</option>
       <option value='sq'>sq</option>
@@ -156,8 +169,8 @@
         <li target="https://webmaker.org/en-US/teach" data-choice-id="webmaker">Webmaker
           <div class="extra" data-l10n-id="webmake-extra"></div>
         </li>
-        <li target="http://hackasaurus.org/">Hackasaurus
-          <div class="extra" data-l10n-id="hackasaurus-extra" data-choice-id="hackasaurus"></div>
+        <li target="https://goggles.webmaker.org/" data-choice-id="hackasaurus">Hackasaurus
+          <div class="extra" data-l10n-id="hackasaurus-extra" ></div>
         </li>
       </ul>
     </div>
@@ -173,6 +186,7 @@
         <li next-group="perl">Perl</li>
         <li next-group="c">C</li>
         <li next-group="rust">Rust</li>
+        <li next-group="go">Go</li>
       </ul>
     </div>
 
@@ -343,6 +357,15 @@
         </li>
         <li target="https://github.com/mozfr/transvision" data-choice-id="transvision">Transvision
           <div class="extra" data-l10n-id="php-transvision-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+     <div class="group" id="go">
+      <span class="question" data-l10n-id="go-intro"></span>
+      <ul class="choices">
+        <li target="http://heka-docs.readthedocs.org/en/latest/" data-choice-id="heka">Heka
+          <div class="extra" data-l10n-id="go-heka-extra"></div>
         </li>
       </ul>
     </div>
