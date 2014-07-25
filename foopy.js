@@ -48,6 +48,7 @@
             '#!/' + stack.join('/') + '/' + getUIDAttribute(choice) + '/' : choice.getAttribute('target');
         
         $('#next a:first').attr('href', '#!/' + stack.join('/') + '/' + getUIDAttribute(nextChoice));
+        $('#back a:first').attr('href', '#!/' + stack.join('/', stack.slice(stack.length - 1, 1)));
 
         if (isExternal) {
           button.addEventListener('click', trackExternalLink);
