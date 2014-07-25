@@ -21,11 +21,23 @@
     function trackExternalLink() {
       window.ga('send', 'event', 'outbound', 'click', $('#ok')[0].firstChild.href);
     }
+  
+    function incrementAndWrap(curr, max) {
+        if(max === undefined) {
+          max = $('.choices li', groupNode).length;
+        }
+        curr++;
+        if (curr === max) {
+          curr = 0;
+        }
+        return curr;
+    }
 
     function updateCurrentChoice(lastIndex) {
         var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][lastIndex]];
         var choice     = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
-
+        var nextChoice = $('.choices li', groupNode)[choices[choices.length - 1][incrementAndWrap(choiceIndex[choiceIndex.length - 1])]];
+      
         updateNegativeResponse();
         lastChoice.style.display = 'none';
         choice.style.display = 'inline';
@@ -33,22 +45,25 @@
         button.removeEventListener('click', trackExternalLink);
         var isExternal = choice.hasAttribute('target');
         button.firstChild.href = !isExternal ?
-            '' : choice.getAttribute('target');
+            '#!/' + stack.join('/') + '/' + getUIDAttribute(choice) + '/' : choice.getAttribute('target');
+        
+        $('#next a:first').attr('href', '#!/' + stack.join('/') + '/' + getUIDAttribute(nextChoice));
+        $('#back a:first').attr('href', '#!/' + stack.join('/', stack.slice(stack.length - 1, 1)));
 
         if (isExternal) {
           button.addEventListener('click', trackExternalLink);
         }
-
         setLocationHashSuffix(getUIDAttribute(choice));
     }
-
-    function nextChoice() {
+  
+    function nextChoice(ev) {
+        if(ev.which === 2) {
+          return;
+        }
+        ev.preventDefault();
         var lastIndex = choiceIndex[choiceIndex.length - 1];
 
-        choiceIndex[choiceIndex.length - 1]++;
-        if (choiceIndex[choiceIndex.length - 1] === $('.choices li', groupNode).length) {
-            choiceIndex[choiceIndex.length - 1] = 0;
-        }
+        choiceIndex[choiceIndex.length - 1] = incrementAndWrap(lastIndex);
         updateCurrentChoice(lastIndex);
     }
 
@@ -84,6 +99,9 @@
     }
 
     function investigate(ev) {
+        if(ev.which === 2) {
+          return;
+        }
         ev.preventDefault();
         var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
         if (choice.hasAttribute('next-group')) {
@@ -94,7 +112,10 @@
         }
     }
 
-    function takeBack() {
+    function takeBack(ev) {
+        if(ev.which === 2) {
+          return;
+        }
         cleanUpCurrent();
         setLocationHashSuffix("");
         stack.splice(stack.length - 1, 1);
