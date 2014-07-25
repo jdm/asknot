@@ -33,7 +33,7 @@
         button.removeEventListener('click', trackExternalLink);
         var isExternal = choice.hasAttribute('target');
         button.firstChild.href = !isExternal ?
-            '#!/progornoprog/' + choice.getAttribute('next-group') + '/' : choice.getAttribute('target');
+            '#!/' + stack.join('/') + '/' + getUIDAttribute(choice) + '/' : choice.getAttribute('target');
 
         if (isExternal) {
           button.addEventListener('click', trackExternalLink);
