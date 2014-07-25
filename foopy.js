@@ -99,6 +99,9 @@
     }
 
     function investigate(ev) {
+        if(ev.which === 2) {
+          return;
+        }
         ev.preventDefault();
         var choice = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
         if (choice.hasAttribute('next-group')) {
@@ -109,7 +112,10 @@
         }
     }
 
-    function takeBack() {
+    function takeBack(ev) {
+        if(ev.which === 2) {
+          return;
+        }
         cleanUpCurrent();
         setLocationHashSuffix("");
         stack.splice(stack.length - 1, 1);
