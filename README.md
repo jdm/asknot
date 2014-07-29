@@ -5,7 +5,7 @@ This project is a place for contributors to start looking for new projects to wo
 ## Installing Locally
     git clone https://github.com/jdm/asknot asknot
     cd asknot
-    Open index.html in your favourite browser!
+Open `index.html` in your favourite browser!
 
 ## Credits
 
