@@ -4,6 +4,7 @@
     var choices     = [];
     var stack       = [];
     var currentLang = "en"; // Default lang
+    var rtlLangs    = {"ar": "","fa": ""};
 
     function chooseNegativeResponse() {
         var responses = $('.negative').not('.visible');
@@ -126,7 +127,7 @@
 
     function onLangChange() {
         document.webL10n.setLanguage(this.value);
-        if (this.value == "ar") {
+        if (this.value in rtlLangs) {
           document.documentElement.dir = "rtl";
         } else {
           document.documentElement.dir = "ltr";
@@ -203,7 +204,7 @@
         // If the browser language is supported, select the good option
 
         document.webL10n.setLanguage(value);
-        if (value == "ar") {
+        if (value in rtlLangs) {
           document.documentElement.dir = "rtl";
         } else {
           document.documentElement.dir = "ltr";
