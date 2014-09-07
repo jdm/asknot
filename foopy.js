@@ -4,6 +4,15 @@
     var choices     = [];
     var stack       = [];
     var currentLang = "en"; // Default lang
+    var rtlLangs    = {"ar": "","fa": ""};
+
+    function detectRtl(value) {
+      if (value in rtlLangs) {
+        document.documentElement.dir = "rtl";
+      } else {
+        document.documentElement.dir = "ltr";
+      }
+    }
 
     function chooseNegativeResponse() {
         var responses = $('.negative').not('.visible');
@@ -21,7 +30,7 @@
     function trackExternalLink() {
       window.ga('send', 'event', 'outbound', 'click', $('#ok')[0].firstChild.href);
     }
-  
+
     function incrementAndWrap(curr, max) {
         if(max === undefined) {
           max = $('.choices li', groupNode).length;
@@ -37,7 +46,7 @@
         var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][lastIndex]];
         var choice     = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
         var nextChoice = $('.choices li', groupNode)[choices[choices.length - 1][incrementAndWrap(choiceIndex[choiceIndex.length - 1])]];
-      
+
         updateNegativeResponse();
         lastChoice.style.display = 'none';
         choice.style.display = 'inline';
@@ -46,7 +55,7 @@
         var isExternal = choice.hasAttribute('target');
         button.firstChild.href = !isExternal ?
             '#!/' + stack.join('/') + '/' + getUIDAttribute(choice) + '/' : choice.getAttribute('target');
-        
+
         $('#next a:first').attr('href', '#!/' + stack.join('/') + '/' + getUIDAttribute(nextChoice));
         $('#back a:first').attr('href', '#!/' + stack.join('/', stack.slice(stack.length - 1, 1)));
 
@@ -55,7 +64,7 @@
         }
         setLocationHashSuffix(getUIDAttribute(choice));
     }
-  
+
     function nextChoice(ev) {
         if(ev.which === 2) {
           return;
@@ -126,6 +135,7 @@
 
     function onLangChange() {
         document.webL10n.setLanguage(this.value);
+        detectRtl(this.value);
         setLangQueryString(this.value)
     }
 
@@ -198,6 +208,7 @@
         // If the browser language is supported, select the good option
 
         document.webL10n.setLanguage(value);
+        detectRtl(value);
         option.prop('selected', 'selected');
 
         currentLang = value;
