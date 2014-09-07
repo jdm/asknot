@@ -6,6 +6,14 @@
     var currentLang = "en"; // Default lang
     var rtlLangs    = {"ar": "","fa": ""};
 
+    function detectRtl(value) {
+      if (value in rtlLangs) {
+        document.documentElement.dir = "rtl";
+      } else {
+        document.documentElement.dir = "ltr";
+      }
+    }
+
     function chooseNegativeResponse() {
         var responses = $('.negative').not('.visible');
 
@@ -127,11 +135,7 @@
 
     function onLangChange() {
         document.webL10n.setLanguage(this.value);
-        if (this.value in rtlLangs) {
-          document.documentElement.dir = "rtl";
-        } else {
-          document.documentElement.dir = "ltr";
-        }
+        detectRtl(this.value);
         setLangQueryString(this.value)
     }
 
@@ -204,11 +208,7 @@
         // If the browser language is supported, select the good option
 
         document.webL10n.setLanguage(value);
-        if (value in rtlLangs) {
-          document.documentElement.dir = "rtl";
-        } else {
-          document.documentElement.dir = "ltr";
-        }
+        detectRtl(value);
         option.prop('selected', 'selected');
 
         currentLang = value;
