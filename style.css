@@ -21,18 +21,6 @@ html {
     margin-right: 100px;
 }
 
-@media screen and (min-width: 500px) and (max-width: 760px) {
-    #tabzilla {
-	margin-right: 60px;
-    }
-}
-
-@media screen and (max-width: 499px) {
-    #tabzilla {
-	margin-right: 50px;
-    }
-}
-
 #lang-selection {
     background: center left transparent no-repeat;
     /*
@@ -195,4 +183,24 @@ a {
 
 .visible {
     display: inline;
+}
+
+@media screen and (min-width: 500px) and (max-width: 760px) {
+    #tabzilla {
+    margin-right: 60px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    #tabzilla {
+    margin-right: 50px;
+    }
+
+    #responses{
+        font-size: 22pt;
+    }
+
+    .choices li {
+        font-size: 25pt;
+    }
 }
