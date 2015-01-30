@@ -18,7 +18,14 @@ html {
 }
 
 #tabzilla {
+	position:fixed;
     margin-right: 100px;
+}
+/* Actual upgradation
+*  Adding new style on hovering
+*/
+#tabzilla:hover{
+	color: #2C3539;
 }
 
 @media screen and (min-width: 500px) and (max-width: 760px) {
