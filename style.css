@@ -24,8 +24,9 @@ html {
 /* Actual upgradation
 *  Adding new style on hovering
 */
-#tabzilla:hover{
+body a:first-child:hover{
 	color: #2C3539;
+	font-weight:bold;
 }
 
 @media screen and (min-width: 500px) and (max-width: 760px) {
