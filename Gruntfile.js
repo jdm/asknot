@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: './dev/assets/images/',
                         src: ['**/*.png'],
-                        dest: './dist/assets/images/',
+                        dest: './images/',
                         ext: '.png'
                     }
                 ]
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     // Destination : Source
-                    './dist/index.html': './dev/index.html'
+                    './index.html': './dev/index.html'
                 }
             }
         },
@@ -77,7 +77,6 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     port: 8000,
-                    base: 'dist',
                     keepalive: true
                 }
             }
@@ -86,12 +85,12 @@ module.exports = function (grunt) {
         copy: {
             css: {
                 src: './dev/assets/css/participe.min.css',
-                dest: './dist/assets/css/participe.min.css',
+                dest: './participe.min.css',
             },
             js: {
                 src: './dev/assets/js/participe.min.js',
-                dest: './dist/assets/js/participe.min.js',
-            },
+                dest: './participe.min.js',
+            }
         },
 
     });
