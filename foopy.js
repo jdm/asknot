@@ -144,11 +144,10 @@
     }
 
     function setLocationHashSuffix(value) {
-        var midValue = stack.join("/");
-
-        var hash = "#!/" + midValue + "/" + value;
+        var midValue = stack.join("/"),
+            hash = "#!/" + midValue + "/" + value;
         if (supportsPushState()) {
-          history.pushState({midValue: midValue, value: value, index: choiceIndex[choiceIndex.length-1]}, null, window.location.pathname + window.location.search + hash);
+          history.pushState({midValue: midValue, index: choiceIndex[choiceIndex.length-1]}, null, window.location.pathname + window.location.search + hash);
         } else {
             window.location.hash = hash;
         }
@@ -229,7 +228,8 @@
 
     window.onpopstate = function(event) {
         if (event.state) {
-            if (event.state.midValue.split("/").length >= 2) { // navigate through details
+            if (event.state.midValue === stack.join("/")) { // navigate through details
+                // stack = event.state.midValue.split("/");
                 var lastIndex = choiceIndex[choiceIndex.length - 1];
                 choiceIndex[choiceIndex.length - 1] = event.state.index;
                 displayChoice(lastIndex);
@@ -238,7 +238,8 @@
                 stack.splice(stack.length - 1, 1);
                 choiceIndex.splice(choiceIndex.length - 1, 1);
                 choices.splice(choices.length - 1, 1);
-                switchGroup(event.state.midValue);
+                var groups = event.state.midValue.split("/");
+                switchGroup(groups[groups.length - 1]);
             }
         }
     }
