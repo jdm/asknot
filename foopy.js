@@ -81,6 +81,11 @@
     }
 
     function switchGroup(group, choiceId) {
+        displayGroup(group, choiceId);
+        updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
+    }
+
+    function displayGroup(group, choiceId) {
         groupNode = document.getElementById(group);
 
         if (!stack.length || stack[stack.length - 1] !== group || choiceId) {
@@ -99,7 +104,6 @@
         $('#back')[0].style.display = group === firstChoice ? 'none' : 'block';
         $('#next')[0].style.display = group !== firstChoice && choices[choices.length - 1].length == 1 ? 'none' : 'block';
         $('.question', groupNode)[0].style.display = 'block';
-        updateCurrentChoice(choiceIndex[choiceIndex.length - 1]);
     }
 
     function cleanUpCurrent() {
@@ -228,18 +232,18 @@
 
     window.onpopstate = function(event) {
         if (event.state) {
-            if (event.state.midValue === stack.join("/")) { // navigate through details
-                // stack = event.state.midValue.split("/");
+            if (event.state.midValue === stack.join("/")) { // navigate through items on same level
                 var lastIndex = choiceIndex[choiceIndex.length - 1];
                 choiceIndex[choiceIndex.length - 1] = event.state.index;
                 displayChoice(lastIndex);
-            } else { // navigate through groups
+            } else { // navigate through levels
                 cleanUpCurrent();
                 stack.splice(stack.length - 1, 1);
                 choiceIndex.splice(choiceIndex.length - 1, 1);
                 choices.splice(choices.length - 1, 1);
                 var groups = event.state.midValue.split("/");
-                switchGroup(groups[groups.length - 1]);
+                displayGroup(groups[groups.length - 1]);
+                displayChoice(choiceIndex[choiceIndex.length - 1]);
             }
         }
     }
