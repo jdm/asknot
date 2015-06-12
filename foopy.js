@@ -43,6 +43,10 @@
     }
 
     function updateCurrentChoice(lastIndex) {
+        setLocationHashSuffix(getUIDAttribute(displayChoice(lastIndex)));
+    }
+
+    function displayChoice(lastIndex) {
         var lastChoice = $('.choices li', groupNode)[choices[choices.length - 1][lastIndex]];
         var choice     = $('.choices li', groupNode)[choices[choices.length - 1][choiceIndex[choiceIndex.length - 1]]];
         var nextChoice = $('.choices li', groupNode)[choices[choices.length - 1][incrementAndWrap(choiceIndex[choiceIndex.length - 1])]];
@@ -62,7 +66,7 @@
         if (isExternal) {
           button.addEventListener('click', trackExternalLink);
         }
-        setLocationHashSuffix(getUIDAttribute(choice));
+        return choice;
     }
 
     function nextChoice(ev) {
@@ -142,7 +146,12 @@
     function setLocationHashSuffix(value) {
         var midValue = stack.join("/");
 
-        window.location.hash = "#!/" + midValue + "/" + value;
+        var hash = "#!/" + midValue + "/" + value;
+        if (supportsPushState()) {
+          history.pushState({midValue: midValue, value: value, index: choiceIndex[choiceIndex.length-1]}, null, window.location.pathname + window.location.search + hash);
+        } else {
+            window.location.hash = hash;
+        }
     }
 
     // Uses HTML5 pushState with fallback to window.location
@@ -150,7 +159,6 @@
         var urlPart = "?lang=" + value + window.location.hash;
 
         currentLang = value;
-
         if (supportsPushState()) {
           history.pushState({ lang: value, location: window.location.hash },
                             "", urlPart);
@@ -220,6 +228,19 @@
     }
 
     window.onpopstate = function(event) {
+        if (event.state) {
+            if (event.state.midValue.split("/").length >= 2) { // navigate through details
+                var lastIndex = choiceIndex[choiceIndex.length - 1];
+                choiceIndex[choiceIndex.length - 1] = event.state.index;
+                displayChoice(lastIndex);
+            } else { // navigate through groups
+                cleanUpCurrent();
+                stack.splice(stack.length - 1, 1);
+                choiceIndex.splice(choiceIndex.length - 1, 1);
+                choices.splice(choices.length - 1, 1);
+                switchGroup(event.state.midValue);
+            }
+        }
     }
 
     $(window).load(function() {
