@@ -23,13 +23,13 @@ html {
 
 @media screen and (min-width: 500px) and (max-width: 760px) {
     #tabzilla {
-	margin-right: 60px;
+        margin-right: 60px;
     }
 }
 
 @media screen and (max-width: 499px) {
     #tabzilla {
-	margin-right: 50px;
+        margin-right: 50px;
     }
 }
 
@@ -53,6 +53,12 @@ html {
     margin-top:0px;
     text-align: center;
     padding-top: 60px;
+}
+
+@media screen and (max-width: 360px) {
+    #wrapper {
+        padding-top: 100px;
+    }
 }
 
 #ribbon {
@@ -135,6 +141,9 @@ a {
     padding: 2px 10px 8px;
     border-radius: 6px;
     border: 0 none;
+
+    display: inline-block;
+    max-width: 90%;
 }
 
 #ok a {
