@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="style.css" title="Default">
   <link rel="alternate stylesheet" type="text/css" href="plain.css" title="Bird's Eye View">
-  <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script>window.jQuery || document.write('<script src="jquery-1.11.2.min.js"><\/script>')</script>
   <script type="text/javascript" src="foopy.js"></script>
   <script type="text/javascript" src="l10n.js"></script>
   <link rel="resource" type="application/l10n" href="locales.ini" />
@@ -43,7 +44,9 @@
       <option value='fa'>fa</option>
       <option value='fr'>fr</option>
       <option value='el'>gr</option>
+      <option value='gu-IN'>gu-IN</option>
       <option value='hi-IN'>hi-IN</option>
+      <option value='id'>id</option>
       <option value='it'>it</option>
       <option value='ko'>ko</option>
       <option value='lv'>lv</option>
@@ -74,6 +77,7 @@
         <li next-group="advocate"><span data-l10n-id="advocacy"></span></li>
         <li next-group="teach"><span data-l10n-id="teaching"></span></li>
         <li next-group="uxdesign"><span data-l10n-id="uxdesign"></span></li>
+        <li next-group="metrics"><span data-l10n-id="metrics"></span></li>
       </ul>
     </div>
 
@@ -100,6 +104,15 @@
       <ul class="choices">
         <li target="https://wiki.mozilla.org/MDN/Development/Contribute/Design" data-choice-id="l10n-creative">Mozilla creative
           <div class="extra" data-l10n-id="creative-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="metrics">
+      <span class="question" data-l10n-id="metrics-intro"></span>
+      <ul class="choices">
+        <li target="https://wiki.mozilla.org/Foundation/Metrics/Contribute" data-choice-id="l10n-metrics">Mozilla Foundation Metrics
+          <div class="extra" data-l10n-id="metrics-extra"></div>
         </li>
       </ul>
     </div>
@@ -161,7 +174,7 @@
     <div class="group" id="advocate">
       <span class="question" data-l10n-id="advocate-intro"></span>
       <ul class="choices">
-        <li target="https://affiliates.mozilla.org/" data-choice-id="affiliate">Mozilla affiliates
+        <li target="https://friends.mozilla.org/" data-choice-id="affiliate">Firefox Friends
           <div class="extra" data-l10n-id="aff-extra"></div>
         </li>
         <li target="https://wiki.mozilla.org/Evangelism" data-choice-id="tech-evang">Evangelizing the web
@@ -200,6 +213,7 @@
         <li next-group="c">C</li>
         <li next-group="rust">Rust</li>
         <li next-group="go">Go</li>
+        <li next-group="swift">Swift</li>
       </ul>
     </div>
 
@@ -211,6 +225,15 @@
         </li>
         <li target="https://github.com/mozilla/servo/blob/master/CONTRIBUTING.md" data-choice-id="servo">Servo
           <div class="extra" data-l10n-id="servo-extra"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" id="swift">
+      <span class="question" data-l10n-id="swift-intro"></span>
+      <ul class="choices">
+        <li target="https://github.com/mozilla/firefox-ios" data-choice-id="firefox-ios">Firefox iOS
+          <div class="extra" data-l10n-id="swift-ff-ios-extra"></div>
         </li>
       </ul>
     </div>
@@ -302,7 +325,7 @@
         <li target="https://wiki.mozilla.org/Webdev/GetInvolved" data-choice-id="web-development">Web development
           <div class="extra" data-l10n-id="js-webdev-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/treeherder-ui/" data-choice-id="treeherder">Treeherder
+        <li target="https://github.com/mozilla/treeherder/" data-choice-id="treeherder">Treeherder
           <div class="extra" data-l10n-id="treeherder-extra"></div>
         </li>
         <li target="http://www.benmoskowitz.com/?p=527" data-choice-id="popcorn">Popcorn
@@ -325,6 +348,9 @@
         </li>
         <li target="http://www.bugzilla.org/contribute/" data-choice-id="bmo">Bugzilla
           <div class="extra" data-l10n-id="js-bmo-extra"></div>
+        </li>
+        <li target="https://github.com/mozilla/fireplace" data-choice-id="fireplace">Fireplace
+          <div class="extra" data-l10n-id="js-fireplace-extra"></div>
         </li>
       </ul>
     </div>
@@ -362,7 +388,7 @@
         <li target="https://wiki.mozilla.org/ReleaseEngineering/Contribute" data-choice-id="releng-py">Release Engineering
           <div class="extra" data-l10n-id="py-releng-extra"></div>
         </li>
-        <li target="https://github.com/mozilla/treeherder-ui/" data-choice-id="treeherder">Treeherder
+        <li target="https://github.com/mozilla/treeherder/" data-choice-id="treeherder">Treeherder
           <div class="extra" data-l10n-id="treeherder-extra"></div>
         </li>
       </ul>
@@ -458,6 +484,7 @@
   </div>
   <footer>
     <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+    <script>window.Tabzilla || document.write('<script src="tabzilla.js"><\/script>')</script>
   </footer>
 </body>
 </html>
