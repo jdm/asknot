@@ -127,11 +127,17 @@ a {
 #responses div a:hover {
     cursor: pointer;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset, 0px 3px 48px rgba(255,255,255,0.2) inset;
+    -moz-transition: all .12s ease-in-out;
+    -webkit-transition: all .12s ease-in-out;
+    transition: all .12s ease-in-out;
 }
 
 #responses div a:active {
     cursor: pointer;
     box-shadow: 0 3px rgba(0, 0, 0, 0.1) inset, 0 1px rgb(255, 255, 255, 0.1), 0px 3px 48px rgba(0,0,0,0.2) inset;
+    -moz-transition: all .12s ease-in-out;
+    -webkit-transition: all .12s ease-in-out;
+    transition: all .12s ease-in-out;
 }
 
 #responses div a {
@@ -141,6 +147,9 @@ a {
     padding: 2px 10px 8px;
     border-radius: 6px;
     border: 0 none;
+    -moz-transition: all .12s ease-in-out;
+    -webkit-transition: all .12s ease-in-out;
+    transition: all .12s ease-in-out;
 
     display: inline-block;
     max-width: 90%;
