@@ -18,7 +18,15 @@ html {
 }
 
 #tabzilla {
+	position:fixed;
     margin-right: 100px;
+}
+/* Actual upgradation
+*  Adding new style on hovering
+*/
+body a:first-child:hover{
+	color: #2C3539;
+	font-weight:bold;
 }
 
 @media screen and (min-width: 500px) and (max-width: 760px) {
@@ -205,6 +213,11 @@ a {
 
 #footer a {
     color: #555;
+}
+#footer a:hover{
+	color : #303030;
+	font-weight : 800;
+	
 }
 
 .negative {
