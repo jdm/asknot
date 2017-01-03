@@ -17,22 +17,6 @@ html {
     background-image: url("./bg.png");
 }
 
-#tabzilla {
-    margin-right: 100px;
-}
-
-@media screen and (min-width: 500px) and (max-width: 760px) {
-    #tabzilla {
-        margin-right: 60px;
-    }
-}
-
-@media screen and (max-width: 499px) {
-    #tabzilla {
-        margin-right: 50px;
-    }
-}
-
 #lang-selection {
     background: center left transparent no-repeat;
     /*
@@ -219,43 +203,21 @@ a {
 html[dir="rtl"] * {
   font-family: 'Droid Arabic Naskh', "Open Sans", sans-serif;
 }
-html[dir="rtl"] #tabzilla {
-  margin-left: 100px;
-  margin-right: unset;
-}
-@media screen and (min-width: 500px) and (max-width: 760px) {
-  html[dir="rtl"] #tabzilla {
-    margin-left: 60px;
-    margin-right: unset;
-  }
-}
-@media screen and (max-width: 499px) {
-  html[dir="rtl"] #tabzilla {
-    margin-left: 50px;
-    margin-right: unset;
-  }
-}
+
 html[dir="rtl"] #lang-selection {
   background: center right transparent no-repeat;
   padding-left: 0;
   padding-right: 28px;
 }
+
 html[dir="rtl"] #lang {
   float: left;
   margin-left: 10px;
   margin-right: unset;
 }
 
-@media screen and (min-width: 500px) and (max-width: 760px) {
-    #tabzilla {
-    margin-right: 60px;
-    }
-}
 
 @media screen and (max-width: 499px) {
-    #tabzilla {
-    margin-right: 50px;
-    }
 
     #responses{
         font-size: 22pt;
@@ -264,4 +226,8 @@ html[dir="rtl"] #lang {
     .choices li {
         font-size: 25pt;
     }
+}
+
+#tabzilla:before {
+    background-color: #333;
 }
