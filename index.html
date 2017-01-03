@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="tabzilla.css" media="screen">
   <link rel="stylesheet" type="text/css" href="style.css" title="Default">
   <link rel="alternate stylesheet" type="text/css" href="plain.css" title="Bird's Eye View">
   <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -10,7 +11,6 @@
   <script type="text/javascript" src="foopy.js"></script>
   <script type="text/javascript" src="l10n.js"></script>
   <link rel="resource" type="application/l10n" href="locales.ini" />
-  <link href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet"/>
   <title>What can I do for Mozilla</title>
   <!-- #responses div elements has display:none by default in case if js is disabled -->
   <script>
@@ -31,7 +31,9 @@
 </head>
 <body>
 
-  <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a>
+  <div id="tabzilla">
+      <a href="https://www.mozilla.org/">Mozilla</a>
+  </div>
   <div id="lang">
     <span id="lang-selection" data-l10n-id="lang-selection">Language:</span>
     <select>
@@ -450,9 +452,5 @@
 
     <div id="footer" data-l10n-id="credits"></div>
   </div>
-  <footer>
-    <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
-    <script>window.Tabzilla || document.write('<script src="tabzilla.js"><\/script>')</script>
-  </footer>
 </body>
 </html>
