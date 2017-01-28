@@ -10,7 +10,13 @@ This project is a place for contributors to start looking for new projects to wo
 Start a local HTTP server. There are a lot of ways to do this but here is one
 for using python.
 
+For python 2.x
+
     python -m SimpleHTTPServer 8000
+
+For python 3.x
+
+    python -m http.server 8000
 
 Open [localhost:8000](http://localhost:8000) in your favourite browser!
 
