@@ -209,7 +209,7 @@
     }
 
     function supportsLang(value) {
-      return !! $('#lang option[value=' + value + ']').length;
+      return !! value.length && !! $('#lang option[value=' + value + ']').length;
     }
 
     function changeLang(value) {
