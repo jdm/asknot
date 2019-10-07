@@ -5,60 +5,65 @@
 
 @charset "utf-8";
 
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 @font-face {
-    font-family: 'Fira Sans';
+    font-family: 'Inter';
     font-weight: normal;
     font-style: normal;
-    src: url("/media/fonts/FiraSans-Regular.woff2") format("woff2");
+ 
 }
 
 @font-face {
-    font-family: 'Fira Sans';
+    font-family: 'Inter';
     font-weight: bold;
     font-style: normal;
-    src: url("/media/fonts/FiraSans-Bold.woff2") format("woff2");
+    
 }
 
 @font-face {
-    font-family: 'Fira Sans';
+    font-family: 'Inter';
     font-weight: normal;
     font-style: italic;
-    src: url("/media/fonts/FiraSans-Italic.woff2") format("woff2");
+
 }
 
 @font-face {
-    font-family: 'Fira Sans';
+    font-family: 'Inter';
     font-weight: bold;
     font-style: italic;
-    src: url("/media/fonts/FiraSans-BoldItalic.woff2") format("woff2");
+
 }
 
 @font-face {
-    font-family: 'Fira Sans Light';
+    font-family: 'Inter Light';
     font-weight: normal;
     font-style: normal;
-    src: url("/media/fonts/FiraSans-Light.woff2") format("woff2");
+
 }
 
 @font-face {
-    font-family: 'Fira Sans Light';
+    font-family: 'Inter Light';
     font-weight: normal;
     font-style: italic;
-    src: url("/media/fonts/FiraSans-LightItalic.woff2") format("woff2");
-}
+
 
 @font-face {
-    font-family: 'Fira Sans Light';
+    font-family: 'Inter Light';
     font-weight: bold;
     font-style: normal;
-    src: url("/media/fonts/FiraSans-Regular.woff2") format("woff2");
+    
 }
 
 @font-face {
-    font-family: 'Fira Sans Light';
+    font-family: 'Inter Light';
     font-weight: bold;
     font-style: italic;
-    src: url("/media/fonts/FiraSans-Italic.woff2") format("woff2");
+  
 }
 
 * {
@@ -69,7 +74,7 @@
 
 html {
     background: url("/media/img/bg.png") repeat scroll 0 0 #eee;
-    font-family: "Fira Sans", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 header {
@@ -79,7 +84,7 @@ header {
     background: rgba(0,0,0,0.05);
     color: #333;
     text-transform: uppercase;
-    font-family: "Fira Sans Light", sans-serif;
+    font-family: "Inter Light", sans-serif;
 }
 
 header svg.mozilla-logo {
@@ -262,7 +267,7 @@ a {
 
 /* RTL View */
 html[dir="rtl"] * {
-    font-family: "Droid Arabic Naskh", "Fira Sans", sans-serif;
+    font-family: "Droid Arabic Naskh", "Inter", sans-serif;
 }
 
 html[dir="rtl"] #lang-selection {
