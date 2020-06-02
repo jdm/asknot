@@ -100,6 +100,11 @@ header #lang-selection {
     padding-bottom: 2px;
 }
 
+.text{
+  font-size: 25%;
+  color:blue;
+}
+
 header #lang {
     font-weight: 300;
     text-align: right;
