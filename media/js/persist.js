@@ -1,5 +1,6 @@
 // Licensed under Apache License, Version 2.0
 // which is compatible with MPL V2.0
+// sourced from https://newsdev.github.io/adcom/persist-js.html
 
 +function (factory) {
   if (typeof define === 'function' && define.amd) {
