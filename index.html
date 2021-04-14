@@ -11,11 +11,13 @@
   <script src="media/js/jquery-1.11.2.min.js"></script>
   <script src="media/js/foopy.js"></script>
   <script src="media/js/l10n.js"></script>
+  <script src="media/js/persist.js"></script>
   <!-- #responses div elements has display:none by default in case if js is disabled -->
   <script>
     $(document).ready(function() {
         $('#responses div').show();
     });
+    $('#lang').persist('attributes', 'selected')
   </script>
   <!-- end of manipulation if js is disabled -->
   <script>
